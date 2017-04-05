@@ -1,0 +1,54 @@
+<html>
+<head>
+
+    <script src = "../bower_components/msgpack-lite/dist/msgpack.min.js"></script>
+    <script src = "../bower_components/pure-uuid/uuid.min.js"></script>
+    <script src = "../dist/network_transport.js"></script>
+
+    <script>
+        var NetworkTransport = network_transport.NetworkTransport;
+        var ntfail_http = new NetworkTransport("google.com/", ["http"]);
+        var ntfail_ws = new NetworkTransport("google.com/", ["http", "websocket_msgpack"]);
+        var nt1 = new NetworkTransport("localhost:8000/api/", ["http"]);
+        var nt2 = new NetworkTransport("localhost:8000/api/", ["http", "websocket_msgpack"]);
+
+        nt1.send({
+            "endpoint": "cars"
+        }, function(status_code, res){
+            console.log("response 1", status_code, res)
+        });
+
+        nt1.send({
+            "endpoint": "cars",
+            "method": "POST",
+            "data": {"name": 123}
+        }, function(status_code, res){
+            console.log("response 1", status_code, res)
+        });
+
+        nt2.send({
+            "endpoint": "cars"
+        }, function(status_code, res){
+            console.log("response 2", status_code, res)
+        });
+
+        ntfail_http.send({
+            "endpoint": "",
+            "method": "GET"
+        }, function(status_code, res){
+            console.log("response 0", status_code, res)
+        });
+
+        ntfail_ws.send({
+            "endpoint": ""
+        }, function(status_code, res){
+            console.log("response 0", status_code, res)
+        });
+
+    </script>
+
+</head>
+
+<body></body>
+
+</html>

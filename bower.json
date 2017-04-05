@@ -1,0 +1,22 @@
+{
+  "name": "network-transport-lib",
+  "version": "0.0.1",
+  "main": "dist/network_transport.js",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "*.*",
+    "!package.json",
+    "!*.md",
+    "!dist/*.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src"
+  ],
+  "dependencies": {
+    "msgpack-lite": "^0.1.26",
+    "pure-uuid": "^1.4.4"
+  }
+}
