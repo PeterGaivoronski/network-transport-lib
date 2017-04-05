@@ -13,7 +13,7 @@ bower install https://github.com/PeterGaivoronski/network-transport-lib.git --pr
 For ionic/angular 2 via npm:
 
 ```
-npm install https://github.com/PeterGaivoronski/network-transport-lib/archive/master.zip
+npm install https://github.com/PeterGaivoronski/network-transport-lib/tarball/master
 ```
 
 ## Usage
